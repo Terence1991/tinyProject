@@ -12,10 +12,21 @@ var urlDataBase = {
     "9sm5xK": "http://www.google.com" 
 }
 
+// stores client urls entrys in DataBase
 app.post("/urls", (req ,res) => {
-console.log(req.body)
-res.send('Ok');
+let longUrl = req.body.longURL
+const shortUrl = generateRandomString();
+urlDataBase[shortUrl] = longUrl; 
+res.redirect(`/urls/${shortUrl}`);
 });
+
+// redirects longs url
+app.get("/u/:shortURL", (req, res) => {
+    // let longURL = ...
+    let longURL = urlDataBase[req.params.shortURL];
+    console.log(longURL);
+    res.redirect(longURL);
+  });
 
 app.get('/urls', (req, res) => {
     let templateVars = {urls: urlDataBase}
@@ -50,7 +61,7 @@ app.get("/urls/:id", (req, res) => {
     res.render("urls_show", templateVars);
   });
 
-
+//function that generates random string for urlDatabaseKeys
   function generateRandomString() {
     let text = ""
     let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
