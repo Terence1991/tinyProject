@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+
+
+    <% include partials/_header.ejs%>
+
+
+<html lang="en">
+<head>
+  <title>TinyApp</title>
+</head>
+<body>
+<ul>
+    <% for(var property1 in urls) { %>
+    <li><a href='#'><%= property1 %></a> <%= urls[property1] %></li>
+    <% }; %>
+</ul>
+</body>
+</html>
