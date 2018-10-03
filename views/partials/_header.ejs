@@ -1,1 +1,14 @@
 <header>My website</header>
+
+<% if(username) { %>
+    <%=username%>  
+    <form method="POST" action="/logout">
+        <button>Logout</button>
+        </form>
+<% } else { %>
+    <form method="POST" action="/login">
+        <input type="text" name="username" style="width: 300px">
+        <button>Login</button>
+         </form>
+<% } %>
+

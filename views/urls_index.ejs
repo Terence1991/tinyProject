@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 
+<% include partials/_header.ejs%>
 
-
-    <% include partials/_header.ejs%>
 
 
 <html lang="en">
@@ -13,6 +12,9 @@
 <ul>
     <% for(var property1 in urls) { %>
     <li><a href='#'><%= property1 %></a> <%= urls[property1] %></li>
+    <form method="POST" action="/urls/<%= property1 %>/delete">
+    <button type="submit">Delete</button>
+    </form>
     <% }; %>
 </ul>
 </body>
