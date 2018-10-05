@@ -11,9 +11,12 @@
 <body>
 <ul>
     <% for(var property1 in urls) { %>
-    <li><a href='#'><%= property1 %></a> <%= urls[property1] %></li>
+    <li><a href="/urls/<%=property1%>"><%= property1 %></a> </li>
     <form method="POST" action="/urls/<%= property1 %>/delete">
     <button type="submit">Delete</button>
+    </form>
+    <form method="GET" action="/urls/<%=property1%>/edit">
+      <button type="submit">Edit</button> 
     </form>
     <% }; %>
 </ul>
