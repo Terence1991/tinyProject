@@ -1,8 +1,6 @@
 <header>My website</header>
 
-<a href='http://localhost:8080/login'>http://localhost:8080/login</a>
 
-<a href='http://localhost:8080/register'>http://localhost:8080/register</a>
 
 <% if(username) { %>
     <%=username%>  
@@ -10,6 +8,8 @@
         <button>Logout</button>
         </form>
 <% } else { %>
+    <a href='/login'>login</a>
+    <a href='/register'>register</a>
     <form method="POST" action="/login">
         <input type="text" name="username" style="width: 300px">
         <button>Login</button>
